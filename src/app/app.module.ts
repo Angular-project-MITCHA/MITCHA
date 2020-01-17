@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
+import { BagsComponent } from './bags/bags.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    JewelryComponent
+    JewelryComponent,
+    BagsComponent
   ],
   imports: [
     BrowserModule,

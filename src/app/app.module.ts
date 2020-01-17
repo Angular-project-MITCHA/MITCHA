@@ -9,6 +9,8 @@ import { BagsComponent } from './bags/bags.component';
 import { UsersComponent } from './users/users.component';
 import { LoginFormComponent } from './users/login-form/login-form.component';
 import { RegisterFormComponent } from './users/register-form/register-form.component';
+import { HomeComponent } from './home/home/home.component';
+import { FooterComponent } from './home/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RegisterFormComponent } from './users/register-form/register-form.compo
     BagsComponent,
     UsersComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,43 @@
+.footer_details a {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 8%;
+}
+
+.footer_details h1 {
+  color: white;
+  font-size: 18px;
+  margin-left: 0px;
+  padding-left: 0px;
+
+}
+
+.footer {
+  background-color: black;
+  padding-top: 3%;
+  overflow: hidden;
+
+}
+
+.footer h1 {
+  color: white;
+}
+
+.footer p {
+  color: white;
+  text-align: center;
+  margin-top: 4%;
+
+  margin-bottom: 5%;
+}
+
+.footer_details {
+  margin-top: 5%;
+  margin: auto;
+  margin-left: 10%;
+
+}
+
+.footer_details div {
+  margin-bottom: 3%;
+}

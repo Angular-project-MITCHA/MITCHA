@@ -11,6 +11,7 @@ import { LoginFormComponent } from './users/login-form/login-form.component';
 import { RegisterFormComponent } from './users/register-form/register-form.component';
 import { HomeComponent } from './home/home/home.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { ClothingComponent } from './clothing/clothing.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FooterComponent } from './home/footer/footer.component';
     LoginFormComponent,
     RegisterFormComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ClothingComponent
   ],
   imports: [
     BrowserModule,

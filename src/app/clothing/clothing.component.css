@@ -1,0 +1,30 @@
+*{
+     font-family:Mv Boli ;
+}
+h2{
+     text-align: center;
+     font-family: Mv Boli;
+text-decoration-line: underline;
+   margin: 30px;
+}
+Img{
+     width: 250px;
+     height: 350px;
+}
+.heart{
+     width: 15px;
+     height: 15px;
+     z-index: 10;
+     margin-top: 2px;
+     margin-right: 2px;
+}
+nav{
+     margin: auto;
+}
+.afterRow{
+     width: 100%;
+}
+
+
+
+ 

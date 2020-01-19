@@ -1,0 +1,34 @@
+var express = require("express");
+var mongoose = require("mongoose");
+var http = require("http");
+
+var bodyparser = require("body-parser");
+var fs = require("fs");
+var app = express();
+app.use(express.static("public"));
+app.use(function(req, resp, next) {
+  resp.setHeader("Access-Control-Allow-Origin", "*");
+  resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+  next();
+});
+app.all("*", (req, resp, next) => {
+  resp.status(404).send("cant find this url");
+});
+app.set("viewengine", "ejs");
+app.set("views", "./views");
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://127.0.0.1:27017/angularproject");
+
+mongoose.connection.on("error", err => {
+  console.error(`MongoDB connection error: ${err}`);
+  process.exit(1);
+});
+
+var files_arr = fs.readdirSync(__dirname + "/models");
+files_arr.forEach(function(file) {
+  require(__dirname + "/models/" + file);
+});
+
+app.listen(8080, function() {
+  console.log("server created");
+});

@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home/home.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { ClothingComponent } from './clothing/clothing.component';
 import { JewelrydetailsComponent } from './jewelrydetails/jewelrydetails.component';
+import { BagsdetailsComponent } from './bagsdetails/bagsdetails.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { JewelrydetailsComponent } from './jewelrydetails/jewelrydetails.compone
     HomeComponent,
     FooterComponent,
     ClothingComponent,
-    JewelrydetailsComponent
+    JewelrydetailsComponent,
+    BagsdetailsComponent
   ],
   imports: [
     BrowserModule,

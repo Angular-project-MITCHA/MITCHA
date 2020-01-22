@@ -1,12 +1,14 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var http = require("http");
-
+var joi = require("joi");
 var bodyparser = require("body-parser");
 var fs = require("fs");
 var app = express();
+var users = require("./controller/user");
+app.use("/MITCHA/users", users)
 app.use(express.static("public"));
-app.use(function(req, resp, next) {
+app.use(function (req, resp, next) {
   resp.setHeader("Access-Control-Allow-Origin", "*");
   resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
   next();
@@ -24,11 +26,11 @@ mongoose.connection.on("error", err => {
   process.exit(1);
 });
 
-var files_arr = fs.readdirSync(__dirname + "/models");
-files_arr.forEach(function(file) {
-  require(__dirname + "/models/" + file);
+var files_arr = fs.readdirSync(__dirname + "/model");
+files_arr.forEach(function (file) {
+  require(__dirname + "/model/" + file);
 });
 
-app.listen(8080, function() {
+app.listen(8080, function () {
   console.log("server created");
 });

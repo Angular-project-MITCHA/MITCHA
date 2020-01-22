@@ -1,3 +1,4 @@
+var config = require("config")
 var express = require("express");
 var mongoose = require("mongoose");
 var http = require("http");
@@ -6,7 +7,10 @@ var bodyparser = require("body-parser");
 var fs = require("fs");
 var app = express();
 var users = require("./controller/user");
-app.use("/MITCHA/users", users)
+var login = require("./controller/login")
+
+app.use("/MITCHA/users", users);
+app.use("/MITCHA/login", login);
 app.use(express.static("public"));
 app.use(function (req, resp, next) {
   resp.setHeader("Access-Control-Allow-Origin", "*");
@@ -30,7 +34,10 @@ var files_arr = fs.readdirSync(__dirname + "/model");
 files_arr.forEach(function (file) {
   require(__dirname + "/model/" + file);
 });
-
+// if (!config.get('jwtprivatekey')) {
+//   console.error("jwtprivatekey undefined");
+//   process.exit(1)
+// }
 app.listen(8080, function () {
   console.log("server created");
 });

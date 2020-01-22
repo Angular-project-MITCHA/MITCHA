@@ -9,6 +9,8 @@ import { BagsComponent } from './bags/bags.component';
 import { HomeComponent } from './home/home/home.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
 import { ClothingComponent } from './clothing/clothing.component';
+import {ClothingdetailsComponent} from './clothingdetails/clothingdetails.component'
+
 
 const routes: Routes = [
   {path:'',component:HomeComponent}, 
@@ -18,7 +20,8 @@ const routes: Routes = [
   {path:'user',component:UsersComponent,
   children:[{path:'login',component:LoginFormComponent},{path:'register',component:RegisterFormComponent}]},
   {path:'jewelrydetail',component:JewelrydetailsComponent},
-  {path:'bagdetail',component:BagsdetailsComponent}
+  {path:'bagdetail',component:BagsdetailsComponent},
+  {path:'clothingdetails',component:ClothingdetailsComponent}
 ];
 
 @NgModule({

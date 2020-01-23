@@ -23,7 +23,7 @@ app.all("*", (req, resp, next) => {
 app.set("viewengine", "ejs");
 app.set("views", "./views");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/angularproject");
+mongoose.connect("mongodb+srv://ourangular:AAAAA@cluster0-b12zn.mongodb.net/test?retryWrites=true&w=majority");
 
 mongoose.connection.on("error", err => {
   console.error(`MongoDB connection error: ${err}`);

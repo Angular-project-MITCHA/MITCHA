@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BagService } from '../services/bag.service';
 
 @Component({
   selector: 'app-bags',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BagsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private bagServ:BagService) { }
+  bags=[];
   ngOnInit() {
+    this.bagServ.listBags().subscribe(data=>{
+      this.bags=data;
+     })
   }
 
 }

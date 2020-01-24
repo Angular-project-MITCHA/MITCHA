@@ -2,6 +2,7 @@ require("express-async-errors");
 var winston = require("winston");
 var error = require("./middleware/error");
 var config = require("config");
+
 var express = require("express");
 var mongoose = require("mongoose");
 var joi = require("joi");
@@ -20,8 +21,8 @@ winston.configure({
   ]
 });
 
-// winston.add(new winston.transports.File(), { filename: "logfile.log" });
 var users = require("./controller/user");
+var bags = require("./controller/bags");
 var login = require("./controller/login");
 var limiter = ratelimit({
   max: 100,
@@ -31,6 +32,7 @@ var limiter = ratelimit({
 
 app.use("/MITCHA/signup", users);
 app.use("/MITCHA/login", login);
+app.use("/MITCHA/bags", bags);
 //limit number of requests from the same ip address
 app.use("/MITCHA", limiter);
 //http security headers
@@ -41,8 +43,10 @@ app.use(mongosanatize());
 app.use(xss());
 //prevent parameter pollution
 app.use(hpp());
+
+
 app.use(express.static("public"));
-app.use(function(req, resp, next) {
+app.use(function (req, resp, next) {
   resp.setHeader("Access-Control-Allow-Origin", "*");
   resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
   next();
@@ -52,10 +56,16 @@ app.use(error);
 app.all("*", (req, resp, next) => {
   resp.status(404).send("cant find this url");
 });
+// app.all("*", (req, resp, next) => {
+//   resp.status(404).send("cant find this url");
+// });
+
 app.set("viewengine", "ejs");
 app.set("views", "./views");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/angularproject");
+mongoose.connect("mongodb+srv://ourangular:AAAAA@cluster0-b12zn.mongodb.net/AngularDB?retryWrites=true&w=majority");
+
+
 
 mongoose.connection.on("error", err => {
   console.error(`MongoDB connection error: ${err}`);
@@ -63,13 +73,25 @@ mongoose.connection.on("error", err => {
 });
 
 var files_arr = fs.readdirSync(__dirname + "/model");
-files_arr.forEach(function(file) {
+files_arr.forEach(function (file) {
   require(__dirname + "/model/" + file);
 });
 if (!config.get("jwtprivatekey")) {
   console.error("jwtprivatekey undefined");
   process.exit(1);
 }
-app.listen(8080, function() {
+app.listen(8080, function () {
   console.log("server created");
+})
+
+
+
+
+
+
+
+
+app.listen(5000, function () {
+  console.log("server on port 5000");
+
 });

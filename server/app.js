@@ -1,22 +1,54 @@
-var config = require("config")
+require("express-async-errors");
+var winston = require("winston");
+var error = require("./middleware/error");
+var config = require("config");
 var express = require("express");
 var mongoose = require("mongoose");
-var http = require("http");
 var joi = require("joi");
-var bodyparser = require("body-parser");
+var hpp = require("hpp");
+var ratelimit = require("express-rate-limit");
+var helmet = require("helmet");
 var fs = require("fs");
+var mongosanatize = require("express-mongo-sanitize");
+var xss = require("xss-clean");
 var app = express();
-var users = require("./controller/user");
-var login = require("./controller/login")
+winston.configure({
+  transports: [
+    new winston.transports.File({
+      filename: "logfile.log"
+    })
+  ]
+});
 
-app.use("/MITCHA/users", users);
+// winston.add(new winston.transports.File(), { filename: "logfile.log" });
+var users = require("./controller/user");
+var login = require("./controller/login");
+var limiter = ratelimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: "Too many requests from this ip,Please try again in an hour !"
+});
+
+app.use("/MITCHA/signup", users);
 app.use("/MITCHA/login", login);
+//limit number of requests from the same ip address
+app.use("/MITCHA", limiter);
+//http security headers
+app.use(helmet());
+//data sanitization against nosql query injection
+app.use(mongosanatize());
+//data sanitization against xss
+app.use(xss());
+//prevent parameter pollution
+app.use(hpp());
 app.use(express.static("public"));
-app.use(function (req, resp, next) {
+app.use(function(req, resp, next) {
   resp.setHeader("Access-Control-Allow-Origin", "*");
   resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
   next();
 });
+app.use(error);
+
 app.all("*", (req, resp, next) => {
   resp.status(404).send("cant find this url");
 });
@@ -31,13 +63,13 @@ mongoose.connection.on("error", err => {
 });
 
 var files_arr = fs.readdirSync(__dirname + "/model");
-files_arr.forEach(function (file) {
+files_arr.forEach(function(file) {
   require(__dirname + "/model/" + file);
 });
-// if (!config.get('jwtprivatekey')) {
-//   console.error("jwtprivatekey undefined");
-//   process.exit(1)
-// }
-app.listen(8080, function () {
+if (!config.get("jwtprivatekey")) {
+  console.error("jwtprivatekey undefined");
+  process.exit(1);
+}
+app.listen(8080, function() {
   console.log("server created");
 });

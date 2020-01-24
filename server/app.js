@@ -7,10 +7,12 @@ var bodyparser = require("body-parser");
 var fs = require("fs");
 var app = express();
 var users = require("./controller/user");
-var login = require("./controller/login")
+var login = require("./controller/login");
+var jewelry = require("./controller/jewerly")
 
 app.use("/MITCHA/users", users);
 app.use("/MITCHA/login", login);
+app.use("/MITCHA/jewelry", jewelry);
 app.use(express.static("public"));
 app.use(function (req, resp, next) {
   resp.setHeader("Access-Control-Allow-Origin", "*");

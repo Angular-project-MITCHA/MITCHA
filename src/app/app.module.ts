@@ -15,8 +15,10 @@ import { ClothingComponent } from './clothing/clothing.component';
 import { JewelrydetailsComponent } from './jewelrydetails/jewelrydetails.component';
 import { BagsdetailsComponent } from './bagsdetails/bagsdetails.component';
 import { ClothingdetailsComponent } from './clothingdetails/clothingdetails.component';
-import{HttpClientModule, HttpClient} from '@angular/common/http'; 
+import{HttpClientModule, HttpClient} from '@angular/common/http';
+import { MatPaginatorModule} from '@angular/material'
 import { BagService } from './services/bag.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { BagService } from './services/bag.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    MatPaginatorModule,
+    HttpClientModule,
+    BrowserAnimationsModule
 
   ],
   providers: [BagService],

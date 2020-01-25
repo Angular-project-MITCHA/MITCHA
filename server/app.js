@@ -2,6 +2,8 @@ require("express-async-errors");
 var winston = require("winston");
 var error = require("./middleware/error");
 var config = require("config");
+var cors = require('cors');
+
 
 var express = require("express");
 var mongoose = require("mongoose");
@@ -30,6 +32,8 @@ var limiter = ratelimit({
   message: "Too many requests from this ip,Please try again in an hour !"
 });
 
+// cors origin 
+app.use(cors());
 app.use("/MITCHA/signup", users);
 app.use("/MITCHA/login", login);
 app.use("/MITCHA/bags", bags);
@@ -80,14 +84,6 @@ if (!config.get("jwtprivatekey")) {
   console.error("jwtprivatekey undefined");
   process.exit(1);
 }
-app.listen(8080, function () {
-  console.log("server created");
-})
-
-
-
-
-
 
 
 

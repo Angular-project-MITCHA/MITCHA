@@ -1,6 +1,6 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var router = express.Router();
+ var express = require("express");
+ var bodyParser = require("body-parser");
+ var router = express.Router();
 var jwt = require("jsonwebtoken");
 var config = require("config");
 var mongoose = require("mongoose");
@@ -40,4 +40,4 @@ router.post("/", parseUrlencoded, async (req, res, next) => {
   res.header("x_auth_token", token).send(user);
 });
 
-module.exports = router;
+ module.exports = router;

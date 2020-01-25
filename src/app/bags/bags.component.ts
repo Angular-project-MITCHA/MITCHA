@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BagService } from '../services/bag.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bags',
@@ -8,12 +9,18 @@ import { BagService } from '../services/bag.service';
 })
 export class BagsComponent implements OnInit {
 
-  constructor(private bagServ:BagService) { }
-  bags=[];
+  constructor(private bagServ:BagService,private router :Router) { }
+ public bags:[];
+ 
   ngOnInit() {
     this.bagServ.listBags().subscribe(data=>{
       this.bags=data;
+      
      })
   }
+  onSelect(bag){
+    this.router.navigate(['/bagdetail',bag._id])
+  }
+  
 
 }

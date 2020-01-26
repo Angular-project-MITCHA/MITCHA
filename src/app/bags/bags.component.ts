@@ -10,16 +10,8 @@ import { Router } from '@angular/router';
 })
 export class BagsComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private bagServ:BagService,private router :Router) { }
- public bags:[];
- 
-  ngOnInit() {
-    this.bagServ.listBags().subscribe(data=>{
-      this.bags=data;
-      
-=======
-  constructor(private bagServ:BagService) { }
+
+  constructor(private bagServ:BagService,private router:Router) { }
   bags=[];
   totalBags=0;
   bagsPerPage=9;
@@ -31,7 +23,6 @@ export class BagsComponent implements OnInit {
       this.bags=data.cbag;
       this.totalBags=data.maxBags;
 
->>>>>>> 115764d9baf59ca44b6043f4c6ce01bfda7bfb9a
      })
 
   }
@@ -50,6 +41,8 @@ export class BagsComponent implements OnInit {
   }
   onSelect(bag){
     this.router.navigate(['/bagdetail',bag._id])
+   console.log(bag._id);
+   
   }
   
 

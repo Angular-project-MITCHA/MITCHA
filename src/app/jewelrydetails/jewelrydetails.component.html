@@ -2,13 +2,11 @@
   <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;"></p>
   <div class="row">
     <!-- Images Div -->
-    <div class="col-sm-6">
+    <div class="col-sm-6" *ngFor="let jew of jewerly">
       <div class="row">
         <div class="col-sm-12">
-          <img src="https://www.mitcha.com/content/images/thumbs/0007166_colored-ocean-crystals.jpeg"
-            style="width: 200px; height: 300px;margin-bottom: 50px;" />
-          <img src="https://www.mitcha.com/content/images/thumbs/0007164_colored-ocean-crystals.jpeg"
-            style="width: 200px; height: 300px;margin-bottom: 50px;" />
+          <img src={{jew.images[0]}} style="width: 200px; height: 300px;margin-bottom: 50px;" />
+          <img src={{jew.images[1]}} style="width: 200px; height: 300px;margin-bottom: 50px;" />
         </div>
       </div>
     </div>
@@ -17,9 +15,10 @@
       <div class="row">
         <div class="col-sm-12">
           <!-- <input type="submit" value="Add to cart" name="btn" id="btnid"> -->
-          <h3>DINA KAMEL</h3>
-          <p>Colored Ocean Crystals</p>
-          <p>675 EGP</p>
+          <h3 class="card-title">{{jew.name}}</h3>
+          <p class="card-text">{{jew.designer}}</p>
+          <p class="card-text">{{jew.description}}</p>
+          <p>{{jew.price}} EGP</p>
         </div>
       </div>
     </div>

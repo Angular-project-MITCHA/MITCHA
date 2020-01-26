@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JewerlyService } from '../services/jewerly.service';
 
 @Component({
   selector: 'app-jewelry',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jewelry.component.css']
 })
 export class JewelryComponent implements OnInit {
-
-  constructor() { }
-
+  constructor(private jewe:JewerlyService) { }
+  public jewerly=[];
   ngOnInit() {
+    this.jewe.listJew().subscribe(data=>{
+      this.jewerly=data;
+    })
   }
 
 }

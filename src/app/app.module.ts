@@ -20,6 +20,7 @@ import { MatPaginatorModule} from '@angular/material'
 import { BagService } from './services/bag.service';
 import { JewerlyService } from './services/jewerly.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 // import { from } from 'rxjs';
 
 
@@ -37,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ClothingComponent,
     JewelrydetailsComponent,
     BagsdetailsComponent,
-    ClothingdetailsComponent
+    ClothingdetailsComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

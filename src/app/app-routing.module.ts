@@ -18,6 +18,7 @@ const routes: Routes = [
   {path:'bagdetail/:_id',component:BagsdetailsComponent},
   {path:'clothing',component:ClothingComponent}, 
   {path:'jewelry',component:JewelryComponent},
+  {path:'jewelrydetails/:_id',component:JewelrydetailsComponent},
   {path:'user',component:UsersComponent,
   children:[{path:'login',component:LoginFormComponent},{path:'register',component:RegisterFormComponent}]},
   {path:'jewelrydetail',component:JewelrydetailsComponent},

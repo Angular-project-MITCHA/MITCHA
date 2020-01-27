@@ -18,7 +18,9 @@ import { ClothingdetailsComponent } from './clothingdetails/clothingdetails.comp
 import{HttpClientModule, HttpClient} from '@angular/common/http';
 import { MatPaginatorModule} from '@angular/material'
 import { BagService } from './services/bag.service';
+import { JewerlyService } from './services/jewerly.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { from } from 'rxjs';
 
 
 @NgModule({
@@ -46,7 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule
 
   ],
-  providers: [BagService],
+  providers: [BagService , JewerlyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

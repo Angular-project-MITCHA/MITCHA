@@ -26,6 +26,8 @@ winston.configure({
 var users = require("./controller/user");
 var bags = require("./controller/bags");
 var login = require("./controller/login");
+var jewerly = require("./controller/jewerly");
+
 var limiter = ratelimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
@@ -37,6 +39,7 @@ app.use(cors());
 app.use("/MITCHA/signup", users);
 app.use("/MITCHA/login", login);
 app.use("/MITCHA/bags", bags);
+app.use("/MITCHA/jewerly", jewerly)
 //limit number of requests from the same ip address
 app.use("/MITCHA", limiter);
 //http security headers
@@ -50,9 +53,19 @@ app.use(hpp());
 
 
 app.use(express.static("public"));
-app.use(function (req, resp, next) {
-  resp.setHeader("Access-Control-Allow-Origin", "*");
-  resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+// app.use(function (req, resp, next) {
+//   resp.setHeader("Access-Control-Allow-Origin", "*");
+//   resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+//   // resp.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//   // resp.setHeader('Access-Control-Allow-Credentials', true);
+//   // resp.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
+//   resp.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+app.all('*', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'DELETE, HEAD, GET, OPTIONS, POST, PUT');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 app.use(error);
@@ -68,9 +81,6 @@ app.set("viewengine", "ejs");
 app.set("views", "./views");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb+srv://ourangular:AAAAA@cluster0-b12zn.mongodb.net/AngularDB?retryWrites=true&w=majority");
-
-
-
 mongoose.connection.on("error", err => {
   console.error(`MongoDB connection error: ${err}`);
   process.exit(1);
@@ -84,7 +94,6 @@ if (!config.get("jwtprivatekey")) {
   console.error("jwtprivatekey undefined");
   process.exit(1);
 }
-
 
 
 app.listen(5000, function () {

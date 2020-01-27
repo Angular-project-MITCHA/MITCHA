@@ -1,31 +1,39 @@
 <div class="container">
   <hr>
   <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form #signUp="ngForm" (ngSubmit)="onSubmit()">
 		<p>Please fill in this form to create an account!</p>
 		<hr>
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				<input type="text" class="form-control" name="firstName" placeholder="first name" required="required">
+				<input type="text" class="form-control"name="firstName" [(ngModel)]="userModel.firstName" required placeholder="first name"
+				[class.is-invalid]="firstName.invalid && firstName.touched" #firstName="ngModel">
+				<small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">Enter first name</small>
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				<input type="text" class="form-control" name="lastName" placeholder="last name" required="required">
+				<input type="text" class="form-control"name="lastName" [(ngModel)]="userModel.lastName" required placeholder="last name"
+				[class.is-invalid]="lastName.invalid && lastName.touched" #lastName="ngModel">
+				<small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Enter last name</small>
 			</div>
         </div>
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-				<input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
+				<input type="email" class="form-control"name="email" [(ngModel)]="userModel.email" required placeholder="email"
+				[class.is-invalid]="email.invalid && email.touched" #email="ngModel">
+				<small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required</small>
 			</div>
         </div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input type="text" class="form-control" name="password" placeholder="Password" required="required">
+				<input type="password" class="form-control" name="password" [(ngModel)]="userModel.password" required placeholder="password"
+        [class.is-invalid]="password.invalid && password.touched" #password="ngModel">
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is Required</small>
 			</div>
         </div>
 		<div class="form-group">
@@ -34,17 +42,21 @@
 					<i class="fa fa-lock"></i>
 					<i class="fa fa-check"></i>
 				</span>
-				<input type="text" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+				<input type="password" class="form-control" name="confirmPassword" [(ngModel)]="userModel.confirmPassword" required placeholder="confirm password"
+		[class.is-invalid]="confirmPassword.invalid && confirmPassword.touched" #confirmPassword="ngModel">
+        <small class="text-danger" [class.d-none]="confirmPassword.valid || confirmPassword.untouched">confirm password </small>
 			</div>
         </div>
         <div class="form-group">
-			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+			<label class="checkbox-inline"><input type="checkbox" required="required" name="accept" [(ngModel)]="userModel.accept" >
+				 I accept the 
+				 <a href="#">Terms of Use</a> &amp; <a href="">Privacy Policy</a></label>
 		</div>
 		<div class="form-group ">
-            <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
+            <button type="submit" [disabled]="signUp.form.invalid"  class="btn btn-dark btn-block">Sign Up</button>
             <br>
             <p>Do you Have account ?</p>
-            <button type="button" class="btn btn-dark btn-block" routerLink="/user/login">Login </button>
+            <button type="button"  class="btn btn-dark btn-block" routerLink="/user/login">Login </button>
         </div>
     </form>
 </div>

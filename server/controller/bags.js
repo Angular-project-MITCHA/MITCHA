@@ -5,15 +5,32 @@ var mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
 var parseUrlencoded = bodyParser.urlencoded({
   extended: true
-});
+}); 
 
-// list all bags from DB
 router.get('/list',function(req,resp){
-    mongoose.model('bags').find(function(err,data){
-        resp.json(data);
+  console.log(req.query)
+  const pageSize= +req.query.pagesize;
+  const currentPage= +req.query.page;
+  let fetchedBags;
+  const mong=mongoose.model('bags').find()
+   
+  if(pageSize && currentPage){
+    mong.skip(pageSize * (currentPage - 1))
+  .limit(pageSize)
+  }
+   mong.then(comingBags =>{
+     fetchedBags=comingBags;
+     return mongoose.model('bags').count()
+    //  resp.status(200).json(po)
+   }).then(count =>{
+    resp.status(200).json({
+      cbag:fetchedBags,
+      maxBags:count
     })
-    
+   })  
 })
+
+
  
 
 // list bag details

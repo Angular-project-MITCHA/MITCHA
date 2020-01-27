@@ -5,7 +5,14 @@ var bags = new Schema({
     price:Number,
     designer:String,
     description:String,
-    images:[String]
+    images:[String],
+    material:String,
+    strap:Number,
+    height:Number,
+    width:Number,
+    depth:Number,
+    code:String
+
 
 });
 mongoose.model("bags",bags);

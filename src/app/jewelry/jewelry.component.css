@@ -12,3 +12,6 @@
   .imageBox:hover .hoverImg {
     display: block;
   }
+  mat-paginator{
+    margin-top: 16px;
+  }

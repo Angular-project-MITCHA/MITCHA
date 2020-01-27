@@ -5,7 +5,12 @@ var jewerly = new Schema({
     price:Number,
     designer:String,
     description:String,
-    images:[String]
-
-});
+    images:[String],
+    material:String,
+    strap:Number,
+    height:Number,
+    width:Number,
+    depth:Number,
+    code:String},
+    {collection:"jewerly"});
 mongoose.model("jewerly",jewerly);

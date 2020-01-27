@@ -15,12 +15,13 @@ import {ClothingdetailsComponent} from './clothingdetails/clothingdetails.compon
 const routes: Routes = [
   {path:'',component:HomeComponent}, 
   {path:'bags',component:BagsComponent},
+  {path:'bagdetail/:_id',component:BagsdetailsComponent},
   {path:'clothing',component:ClothingComponent}, 
   {path:'jewelry',component:JewelryComponent},
+  {path:'jewelrydetails/:_id',component:JewelrydetailsComponent},
   {path:'user',component:UsersComponent,
   children:[{path:'login',component:LoginFormComponent},{path:'register',component:RegisterFormComponent}]},
   {path:'jewelrydetail',component:JewelrydetailsComponent},
-  {path:'bagdetail',component:BagsdetailsComponent},
   {path:'clothingdetails',component:ClothingdetailsComponent}
 ];
 

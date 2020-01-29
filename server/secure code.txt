@@ -1,0 +1,1 @@
+set mitcha_jwtprivatekey_securekey=mysecurekey

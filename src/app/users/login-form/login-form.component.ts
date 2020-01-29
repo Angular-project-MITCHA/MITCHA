@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginUser } from 'src/app/login-user';
 
 @Component({
   selector: 'app-login-form',
@@ -8,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class LoginFormComponent implements OnInit {
 
   constructor() { }
-
+  public userModel=new LoginUser("","");
   ngOnInit() {
   }
-
+onSubmit(){
+  console.log("login")
+}
 }

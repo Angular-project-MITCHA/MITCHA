@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var clothings = new Schema({
-     name:String,
+var jewerly = new Schema({
+    name:String,
     price:Number,
     designer:String,
     description:String,
@@ -11,9 +11,6 @@ var clothings = new Schema({
     height:Number,
     width:Number,
     depth:Number,
-    code:String
-
-},
-{collection:"clothing"}
-);
-mongoose.model("clothing",clothings);
+    code:String},
+    {collection:"jewerly"});
+mongoose.model("jewerly",jewerly);

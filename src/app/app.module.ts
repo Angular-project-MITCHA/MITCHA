@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
@@ -19,8 +19,14 @@ import { ClothingdetailsComponent } from './clothingdetails/clothingdetails.comp
 import{HttpClientModule, HttpClient} from '@angular/common/http';
 import { MatPaginatorModule} from '@angular/material'
 import { BagService } from './services/bag.service';
+import { JewerlyService } from './services/jewerly.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { CartComponent } from './cart/cart.component';
+=======
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+// import { from } from 'rxjs';
+>>>>>>> a00f2df2109155397f4d9cc92944e9847a73ec80
 
 
 @NgModule({
@@ -38,7 +44,11 @@ import { CartComponent } from './cart/cart.component';
     JewelrydetailsComponent,
     BagsdetailsComponent,
     ClothingdetailsComponent,
+<<<<<<< HEAD
     CartComponent
+=======
+    PagenotfoundComponent
+>>>>>>> a00f2df2109155397f4d9cc92944e9847a73ec80
   ],
   imports: [
     BrowserModule,
@@ -46,10 +56,11 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     MatPaginatorModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
 
   ],
-  providers: [BagService],
+  providers: [BagService , JewerlyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

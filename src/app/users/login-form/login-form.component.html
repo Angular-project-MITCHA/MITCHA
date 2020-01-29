@@ -1,19 +1,31 @@
 <div class="container">
   <hr>
   <div class="login-form">
-    <form  method="post">
-        <h2 class="text-center">Log in</h2>       
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-dark btn-block">Log in</button>
-        </div>
-                
+    <form #login="ngForm"  (ngSubmit)="onSubmit()">
+      <h2 class="text-center">Log in</h2>
+
+      <div class="form-group">
+
+<input type="email" class="form-control" name="email" [(ngModel)]="userModel.email" required placeholder="email" 
+[class.is-invalid]="email.invalid && email.touched" #email="ngModel">
+<small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required</small>
+      </div>
+
+
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" [(ngModel)]="userModel.password" required placeholder="password"
+        [class.is-invalid]="password.invalid && password.touched" #password="ngModel">
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is Required</small>
+             
+      </div>
+     
+        <button type="submit" [disabled]="login.form.invalid"  class="btn btn-dark btn-block">Log in</button>
+     
+
     </form>
-    <p class="text-center"><a style="color:black; font-weight: bold;" routerLink="/user/register">Create an Account</a></p>
-</div>
+    <p class="text-center">
+        <a style="color:black; font-weight: bold;" routerLink="/user/register">Create an Account</a>
+
+    </p>
   </div>
+</div>

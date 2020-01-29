@@ -36,7 +36,7 @@ var limiter = ratelimit({
 
 // cors origin 
 app.use(cors());
-app.use("/MITCHA/signup", users);
+app.use("/MITCHA/user", users);
 app.use("/MITCHA/login", login);
 app.use("/MITCHA/bags", bags);
 app.use("/MITCHA/jewerly", jewerly)

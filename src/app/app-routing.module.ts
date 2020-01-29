@@ -10,11 +10,8 @@ import { HomeComponent } from './home/home/home.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
 import { ClothingComponent } from './clothing/clothing.component';
 import {ClothingdetailsComponent} from './clothingdetails/clothingdetails.component'
-<<<<<<< HEAD
 import { CartComponent } from './cart/cart.component';
-=======
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
->>>>>>> a00f2df2109155397f4d9cc92944e9847a73ec80
 
 
 const routes: Routes = [

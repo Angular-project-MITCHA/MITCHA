@@ -66,17 +66,17 @@ users.methods.addToCart=function(product){
 
 
 
-// function validateuser(user) {
-//   var schema = {
-//     firstname: joi.string().min(3).max(50).required(),
-//     secondname: joi.string().min(3).max(50).required(),
-//     email: joi.string().min(5).max(255).required().email(),
-//     password: joi.string().min(5).max(255).required()
-//   };
-//   return joi.validate(user, schema)
-// }
+function validateuser(user) {
+  var schema = {
+    firstname: joi.string().min(3).max(50).required(),
+    secondname: joi.string().min(3).max(50).required(),
+    email: joi.string().min(5).max(255).required().email(),
+    password: joi.string().min(5).max(255).required()
+  };
+  return joi.validate(user, schema)
+}
 
-// exports.validate = validateuser;
+exports.validate = validateuser;
 // exports.users = users;
 
 module.exports=mongoose.model('users',users);

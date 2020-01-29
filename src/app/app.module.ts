@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
 import { BagsComponent } from './bags/bags.component';
@@ -21,12 +20,9 @@ import { MatPaginatorModule} from '@angular/material'
 import { BagService } from './services/bag.service';
 import { JewerlyService } from './services/jewerly.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
 import { CartComponent } from './cart/cart.component';
-=======
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 // import { from } from 'rxjs';
->>>>>>> a00f2df2109155397f4d9cc92944e9847a73ec80
 
 
 @NgModule({
@@ -44,11 +40,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     JewelrydetailsComponent,
     BagsdetailsComponent,
     ClothingdetailsComponent,
-<<<<<<< HEAD
-    CartComponent
-=======
+    CartComponent,
     PagenotfoundComponent
->>>>>>> a00f2df2109155397f4d9cc92944e9847a73ec80
   ],
   imports: [
     BrowserModule,

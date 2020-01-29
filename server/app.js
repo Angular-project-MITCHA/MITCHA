@@ -1,7 +1,7 @@
-require("express-async-errors");
-var winston = require("winston");
+// require("express-async-errors");
+// var winston = require("winston");
 var error = require("./middleware/error");
-var config = require("config");
+// var config = require("config");
 var cors = require('cors');
 
 
@@ -10,43 +10,59 @@ var mongoose = require("mongoose");
 var joi = require("joi");
 var hpp = require("hpp");
 var ratelimit = require("express-rate-limit");
-var helmet = require("helmet");
-var fs = require("fs");
-var mongosanatize = require("express-mongo-sanitize");
-var xss = require("xss-clean");
+// var helmet = require("helmet");
+// var fs = require("fs");
+// var mongosanatize = require("express-mongo-sanitize");
+// var xss = require("xss-clean");
 var app = express();
-winston.configure({
-  transports: [
-    new winston.transports.File({
-      filename: "logfile.log"
-    })
-  ]
-});
+// winston.configure({
+//   transports: [
+//     new winston.transports.File({
+//       filename: "logfile.log"
+//     })
+//   ]
+// });
 
 var users = require("./controller/user");
+var shopcart=require('./controller/shopcart');
 var bags = require("./controller/bags");
-var login = require("./controller/login");
-var limiter = ratelimit({
-  max: 100,
-  windowMs: 60 * 60 * 1000,
-  message: "Too many requests from this ip,Please try again in an hour !"
-});
+var login = require("./controller/login"); 
+const User=require('./model/user');
+const bagsModel=require('./model/bags');
 
+
+// var limiter = ratelimit({
+//   max: 100,
+//   windowMs: 60 * 60 * 1000,
+//   message: "Too many requests from this ip,Please try again in an hour !"
+// });
+
+app.use((req, res, next) => {
+  User.findById('5e2f996086b6d81394e68468') 
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+});
 // cors origin 
 app.use(cors());
 app.use("/MITCHA/signup", users);
 app.use("/MITCHA/login", login);
 app.use("/MITCHA/bags", bags);
+app.use("/MITCHA/shopcart",shopcart);
+// app.use("/MITCHA/cart", cart);
+
 //limit number of requests from the same ip address
-app.use("/MITCHA", limiter);
+// app.use("/MITCHA", limiter);
 //http security headers
-app.use(helmet());
+// app.use(helmet());
 //data sanitization against nosql query injection
-app.use(mongosanatize());
+// app.use(mongosanatize());
 //data sanitization against xss
-app.use(xss());
+// app.use(xss());
 //prevent parameter pollution
-app.use(hpp());
+// app.use(hpp());
 
 
 app.use(express.static("public"));
@@ -55,6 +71,11 @@ app.use(function (req, resp, next) {
   resp.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
   next();
 });
+
+
+
+
+
 app.use(error);
 
 app.all("*", (req, resp, next) => {
@@ -67,7 +88,28 @@ app.all("*", (req, resp, next) => {
 app.set("viewengine", "ejs");
 app.set("views", "./views");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://ourangular:AAAAA@cluster0-b12zn.mongodb.net/AngularDB?retryWrites=true&w=majority");
+mongoose
+.connect("mongodb+srv://ourangular:AAAAA@cluster0-b12zn.mongodb.net/AngularDB?retryWrites=true&w=majority")
+.then(result => {
+  User.findOne().then(user => {
+    if (!user) {
+      const user = new User({
+        firstname: 'angular',
+        secondname:'project',
+        email: 'angular@test.com',
+        password:'AAAAA',
+        isadmin:false,
+        cart: {
+          items: []
+        }
+      });
+      user.save();
+    }
+  });   
+})
+.catch(err => {
+  console.log(err);
+});
 
 
 
@@ -76,14 +118,14 @@ mongoose.connection.on("error", err => {
   process.exit(1);
 });
 
-var files_arr = fs.readdirSync(__dirname + "/model");
-files_arr.forEach(function (file) {
-  require(__dirname + "/model/" + file);
-});
-if (!config.get("jwtprivatekey")) {
-  console.error("jwtprivatekey undefined");
-  process.exit(1);
-}
+// var files_arr = fs.readdirSync(__dirname + "/model");
+// files_arr.forEach(function (file) {
+//   require(__dirname + "/model/" + file);
+// });
+// if (!config.get("jwtprivatekey")) {
+//   console.error("jwtprivatekey undefined");
+//   process.exit(1);
+// }
 
 
 

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
 import { BagsComponent } from './bags/bags.component';
@@ -19,6 +20,7 @@ import{HttpClientModule, HttpClient} from '@angular/common/http';
 import { MatPaginatorModule} from '@angular/material'
 import { BagService } from './services/bag.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -35,11 +37,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ClothingComponent,
     JewelrydetailsComponent,
     BagsdetailsComponent,
-    ClothingdetailsComponent
+    ClothingdetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     MatPaginatorModule,
     HttpClientModule,
     BrowserAnimationsModule

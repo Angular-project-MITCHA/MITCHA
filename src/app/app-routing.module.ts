@@ -10,12 +10,14 @@ import { HomeComponent } from './home/home/home.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
 import { ClothingComponent } from './clothing/clothing.component';
 import {ClothingdetailsComponent} from './clothingdetails/clothingdetails.component'
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
   {path:'',component:HomeComponent}, 
   {path:'bags',component:BagsComponent},
   {path:'bagdetail/:_id',component:BagsdetailsComponent},
+  {path:'cart/:_id',component:CartComponent}, 
   {path:'clothing',component:ClothingComponent}, 
   {path:'jewelry',component:JewelryComponent},
   {path:'user',component:UsersComponent,

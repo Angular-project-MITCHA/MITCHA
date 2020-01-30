@@ -21,7 +21,7 @@ export class JewelryComponent implements OnInit {
       this.totalBags=data.maxBags;
     })
   }
-  onChangedPage(pageData:PageEvent){
+  onChangedPage (pageData:PageEvent){
     // console.log(pageData); 
     this.currentPage=pageData.pageIndex + 1;
     this.bagsPerPage=pageData.pageSize;

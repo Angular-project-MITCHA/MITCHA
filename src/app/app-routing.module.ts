@@ -15,6 +15,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BagsearchComponent } from './bagsearch/bagsearch.component';
 import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component';
 import { ClothingsearchComponent } from './clothingsearch/clothingsearch.component';
+import { AllComponent } from './all/all.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:'jewerlysearch/:name',component:JewerlysearchComponent},
   {path:'clothingdetails/:_id',component:ClothingdetailsComponent},
   {path:'clothingsearch/:name',component:ClothingsearchComponent},
+  {path:'all/:name',component:AllComponent},
   {path:'**' ,component:PagenotfoundComponent}
 ];
 

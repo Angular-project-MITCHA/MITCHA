@@ -1,7 +1,5 @@
 export class close {
      constructor(
- 
-    
       public   name:String,
       public   price:Number,
       public   designer:String,

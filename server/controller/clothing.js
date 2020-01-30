@@ -47,6 +47,19 @@ router.get('/clothingdetails/:_id',function(req,resp){
  })
 
 })
- 
+router.get('/search/:name',function(req,resp){
 
+     
+  var name=req.params.name;
+ 
+ mongoose.model('clothing').find({"name": {"$regex": name}},function(err,data){
+  if(data.length!=0)
+
+  resp.json(data);
+  else
+  resp.send("Not found");
+
+ })
+})
+ 
 module.exports = router;

@@ -1,0 +1,18 @@
+.imageBox {
+    position: relative;
+  }
+  
+  .imageBox .hoverImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+  }
+  
+  .imageBox:hover .hoverImg {
+    display: block;
+  }
+  mat-paginator{
+    margin-top: 16px;
+  }
+ 

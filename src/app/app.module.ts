@@ -25,7 +25,8 @@ import { BagsearchComponent } from './bagsearch/bagsearch.component';
 import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component';
 
 import { UserService } from "./services/user.service";
-import {CartComponent} from "./cart/cart.component"
+import {CartComponent} from "./cart/cart.component";
+import { ClothingsearchComponent } from './clothingsearch/clothingsearch.component'
 // import { from } from 'rxjs';
 
 @NgModule({
@@ -46,7 +47,8 @@ import {CartComponent} from "./cart/cart.component"
     PagenotfoundComponent,
     BagsearchComponent,
     JewerlysearchComponent,
-    CartComponent
+    CartComponent,
+    ClothingsearchComponent
   ],
   imports: [
     BrowserModule,

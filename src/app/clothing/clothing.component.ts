@@ -36,14 +36,15 @@ export class ClothingComponent implements OnInit {
       this.totalclothing=data.maxclothing;
 
      })
-
-
   }
   onSelect(close){
     this.router.navigate(['/clothingdetails',close._id])
    console.log(close._id);
    
   }
-  
-
+  search(name){
+    this.router.navigate(['/clothingsearch',name])
+   console.log(name);
+   
+  }
 }

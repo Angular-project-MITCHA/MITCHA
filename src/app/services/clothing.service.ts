@@ -25,6 +25,10 @@ export class  ClothingService {
     getDetails(_id):Observable<any>{
       return this.http.get<any>('http://localhost:5000/MITCHA/clothing/clothingdetails/'+_id);
     }
+    
+    getSearch(name):Observable<any>{
+      return this.http.get<any>('http://localhost:5000/MITCHA/clothing/search/'+name);
+    }
   }
    
   

@@ -1,0 +1,21 @@
+.carousel-inner img {
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .carousel-indicators .active{
+     background-color:gray;
+ }
+ .carousel-indicators{
+     color:white;
+ }
+ .carousel-control-next,
+ .carousel-control-prev {
+     filter: invert(100%);
+ }
+ button{
+     margin: 5px;
+ }
+ #details{
+     margin-left: 70px;
+ }

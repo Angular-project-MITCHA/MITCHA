@@ -14,13 +14,15 @@ import { FooterComponent } from './home/footer/footer.component';
 import { ClothingComponent } from './clothing/clothing.component';
 import { JewelrydetailsComponent } from './jewelrydetails/jewelrydetails.component';
 import { BagsdetailsComponent } from './bagsdetails/bagsdetails.component';
-import { ClothingdetailsComponent } from './clothingdetails/clothingdetails.component';
+import { clothingdetailsComponent } from './clothingdetails/clothingdetails.component';
 import{HttpClientModule, HttpClient} from '@angular/common/http';
 import { MatPaginatorModule} from '@angular/material'
 import { BagService } from './services/bag.service';
 import { JewerlyService } from './services/jewerly.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import {ClothingService} from './services/clothing.service'
+
 // import { from } from 'rxjs';
 
 
@@ -38,7 +40,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ClothingComponent,
     JewelrydetailsComponent,
     BagsdetailsComponent,
-    ClothingdetailsComponent,
+    clothingdetailsComponent,
     PagenotfoundComponent
   ],
   imports: [
@@ -50,7 +52,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     FormsModule
 
   ],
-  providers: [BagService , JewerlyService],
+  providers: [BagService , JewerlyService,ClothingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

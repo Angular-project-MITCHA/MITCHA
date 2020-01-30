@@ -9,11 +9,13 @@ import { HttpClient } from '@angular/common/http';
 
 export class  ClothingService {
   
-  // listclothing(clothingPerPage:Number,currentPage:Number)
+  
       constructor(private http:HttpClient) { }
-      listclothing():Observable<any>{
-        // const queryParams=`?pagesize=${clothingPerPage}&page=${currentPage}`;
-        // console.log(queryParams)
+
+
+      listclothing(clothingPerPage:Number,currentPage:Number):Observable<any>{
+        const queryParams=`?pagesize=${clothingPerPage}&page=${currentPage}`;
+        console.log(queryParams)
          return this.http
          .get<any>('http://localhost:5000/MITCHA/clothing/list/')
       

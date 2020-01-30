@@ -25,4 +25,7 @@ export class BagService {
     return this.http.get<any>('http://localhost:5000/MITCHA/bags/bagdetail/'+_id);
   }
 
+  getSearch(name):Observable<any>{
+    return this.http.get<any>('http://localhost:5000/MITCHA/bags/search/'+name);
+  }
 }

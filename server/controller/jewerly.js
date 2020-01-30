@@ -13,10 +13,10 @@ route.get('/list', function (req, resp) {
   const pageSize= +req.query.pagesize;
   const currentPage= +req.query.page;
   let fetchedBags;
-  const mong=mongoose.model('jewerly').find(function (err, data) {
-     resp.json(data);
-   })
-  //  const mong=mongoose.model('jewerly').find() 
+  // const mong=mongoose.model('jewerly').find(function (err, data) {
+  //    resp.json(data);
+  //  })
+   const mong=mongoose.model('jewerly').find() 
    if(pageSize && currentPage){
     mong.skip(pageSize * (currentPage - 1))
   .limit(pageSize)
@@ -39,6 +39,21 @@ route.get('/jewelrydetails/:_id', function (req, resp) {
   }, function (err, data) {
     resp.json(data);
   })
+})
+
+route.get('/search/:name',function(req,resp){
+
+     
+  var name=req.params.name;
+ 
+ mongoose.model('jewerly').find({"name": {"$regex": name}},function(err,data){
+  if(data.length!=0)
+
+  resp.json(data);
+  else
+  resp.send("Not found");
+
+ })
 })
 
 module.exports = route;

@@ -21,6 +21,8 @@ import { BagService } from './services/bag.service';
 import { JewerlyService } from './services/jewerly.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { BagsearchComponent } from './bagsearch/bagsearch.component';
+import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component';
 // import { from } from 'rxjs';
 
 
@@ -39,7 +41,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     JewelrydetailsComponent,
     BagsdetailsComponent,
     ClothingdetailsComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    BagsearchComponent,
+    JewerlysearchComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,8 @@ import { JewelryComponent } from './jewelry/jewelry.component';
 import { ClothingComponent } from './clothing/clothing.component';
 import {ClothingdetailsComponent} from './clothingdetails/clothingdetails.component'
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { BagsearchComponent } from './bagsearch/bagsearch.component';
+import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component';
 
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
   children:[{path:'login',component:LoginFormComponent},{path:'register',component:RegisterFormComponent}]},
   {path:'jewelrydetail',component:JewelrydetailsComponent},
   {path:'clothingdetails',component:ClothingdetailsComponent},
+  {path:'bagsearch/:name',component:BagsearchComponent},
+  {path:'jewerlysearch/:name',component:JewerlysearchComponent},
   {path:'**' ,component:PagenotfoundComponent}
 ];
 

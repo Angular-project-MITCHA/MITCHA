@@ -31,6 +31,7 @@ router.get('/list',function(req,resp){
 })
 
 
+
  
 
 // list bag details
@@ -43,6 +44,23 @@ router.get('/bagdetail/:_id',function(req,resp){
  mongoose.model('bags').findOne({_id:_id},function(err,data){
 
   resp.json(data);
+
+ })
+
+})
+// search bag name
+
+router.get('/search/:name',function(req,resp){
+
+     
+  var name=req.params.name;
+ 
+ mongoose.model('bags').find({"name": {"$regex": name}},function(err,data){
+  if(data.length!=0)
+
+  resp.json(data);
+  else
+  resp.send("Not found");
 
  })
 

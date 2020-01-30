@@ -1,11 +1,8 @@
 <div class="container">
-  <form class="form-group">
-    <input class="form-control" style="width: 300px;" type="search" placeholder="Search...." aria-label="Search"  #searchInput >
-    <button class="btn btn-outline-dark" style="margin-left: 310px;margin-top: -70px;" type="submit" (click)="search(searchInput.value)">Search</button> 
-  </form>
+  
   <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;">BAGS</p>
   <div class="row"  >
-    <div class="col-sm-4" *ngFor="let bag of bags" (click)="onSelect(bag)">
+    <div class="col-sm-4" *ngFor="let bag of bagModel" (click)="onSelect(bag)">
       <div class="row">
            <div class="col-sm-12">
             <div class="card" style="width: 100%;height: 100%;border: none;">
@@ -24,11 +21,4 @@
     </div>
     </div>
     </div> 
- 
-  
-    <mat-paginator id="pages" [length]="totalBags"
-              [pageSize]="bagsPerPage"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="onChangedPage($event)">
-     </mat-paginator >
 </div>

@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var Products = new Schema({
+var All = new Schema({
     name:String,
     price:Number,
     designer:String,
@@ -11,10 +11,6 @@ var Products = new Schema({
     height:Number,
     width:Number,
     depth:Number,
-    code:String,
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'users' 
-      }  
-});
-module.exports=mongoose.model("Products",Products);
+    code:String},
+    {collection:"All"});
+module.exports=mongoose.model("All",All);

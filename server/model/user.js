@@ -33,7 +33,7 @@ var users =new Schema({
   cart:{
     items:[
         {
-            productId:{type:Schema.Types.ObjectId,ref:'bags',required:true},
+            productId:{type:Schema.Types.ObjectId,ref:'All',required:true},
             quantity:{type:Number,required:true} 
              
         }

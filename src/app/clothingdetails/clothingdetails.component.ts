@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { close } from '../clothing';
 import { ClothingService } from '../services/clothing.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-clothingdetails',
@@ -10,11 +11,13 @@ import { ClothingService } from '../services/clothing.service';
 })
 export class ClothingdetailsComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private router:Router,private clothingServ:ClothingService) { }
+  constructor(private route:ActivatedRoute,
+    private router:Router,private clothingServ:ClothingService,
+    private cartserv:CartService) { }
   public code;
   public ID;
   public closeModel=new close("",0,"","",[""],"",0,0,0,0,"");
-
+  public proId;
  ngOnInit() {
   
    
@@ -35,6 +38,11 @@ export class ClothingdetailsComponent implements OnInit {
   {
    this.router.navigate(['/clothing']);
 
+  }
+  goToCart(product){
+    this.router.navigate(['/cart',product._id]);
+    this.proId=product._id; 
+    this.cartserv.postCart(this.proId).subscribe();
   }
   
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Bag } from '../bag';
 import { BagService } from '../services/bag.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-bagsdetails',
@@ -10,10 +11,12 @@ import { BagService } from '../services/bag.service';
 })
 export class BagsdetailsComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private router:Router,private bagServ:BagService) { }
+  constructor(private route:ActivatedRoute,private router:Router,
+    private bagServ:BagService,private cartserv:CartService) { }
   public code;
   public ID;
   public bagModel=new Bag("",0,"","",[""],"",0,0,0,0,"");
+  public proId;
 
  ngOnInit() {
   
@@ -36,7 +39,11 @@ export class BagsdetailsComponent implements OnInit {
    this.router.navigate(['/bags']);
 
   }
-  
+  goToCart(product){
+    this.router.navigate(['/cart',product._id]);
+    this.proId=product._id; 
+    this.cartserv.postCart(this.proId).subscribe();
+  }
 
 
 }

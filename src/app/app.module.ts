@@ -23,8 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BagsearchComponent } from './bagsearch/bagsearch.component';
 import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component';
-// import { from } from 'rxjs';
 
+import { UserService } from "./services/user.service";
+import {CartComponent} from "./cart/cart.component"
+// import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component'
     ClothingdetailsComponent,
     PagenotfoundComponent,
     BagsearchComponent,
-    JewerlysearchComponent
+    JewerlysearchComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +55,8 @@ import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component'
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule
-
   ],
-  providers: [BagService , JewerlyService],
+  providers: [BagService, JewerlyService, UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

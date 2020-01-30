@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+         
+            <ul class="cart__item-list" *ngFor="let item of cart">
+                 
+                    <li class="cart__item">
+                        <h1>Name:{{item.productId.name}}</h1>
+                        <h2>Quantity:{{item.quantity}}</h2> 
+
+                        <form action="/cart-delete-item" method="POST">
+                            <button class="btn danger" type="submit">Delete</button>
+                        </form>
+                    </li>
+                 
+            </ul>
+            <hr>
+            <div class="centered">
+                <form action="/create-order" method="POST">
+                  <button type="submit" class="btn">CheckOut!</button>
+                </form>
+            </div> 
+    </main>
+    
+</body>
+</html>

@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var bags = new Schema({
+var Products = new Schema({
     name:String,
     price:Number,
     designer:String,
@@ -11,6 +11,10 @@ var bags = new Schema({
     height:Number,
     width:Number,
     depth:Number,
-    code:String 
+    code:String,
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'users' 
+      }  
 });
-module.exports=mongoose.model("bags",bags);
+module.exports=mongoose.model("Products",Products);

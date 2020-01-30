@@ -37,5 +37,15 @@ router.get('/cart/:id',function(req,res){
   }); 
      
   })
+
+
+router.get('/deleteCart/:id',function(req,res){ 
+    var id=req.params.id;
+    req.user
+    .removeFromCart(id).then(result => {
+      console.log('item Deleted'); 
+    })
+    .catch(err => console.log(err)); 
+  })  
 module.exports = router;
    

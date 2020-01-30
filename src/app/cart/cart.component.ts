@@ -20,4 +20,12 @@ export class CartComponent implements OnInit {
     })
   }
 
+  deleteCartItem(itemId){
+    this.router.navigate(['/cart',itemId]);
+    this.cartserv.postDeleteCart(itemId).subscribe(()=>{
+      console.log('deleted');
+      
+    })
+  }
+
 }

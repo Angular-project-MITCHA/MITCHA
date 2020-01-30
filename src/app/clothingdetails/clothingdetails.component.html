@@ -1,27 +1,81 @@
+ 
 <div class="container">
+  <hr>
+
   <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;"></p>
-  <div class="row">
-
+  <div class="row"> 
+     Images Div 
     <div class="col-sm-6">
       <div class="row">
         <div class="col-sm-12">
-          <img src=" assets/imges/img8/m2.png" style="width: 200px; height: 300px;margin-bottom: 50px;" />
-          <img src="assets/imges/img8/m1.png" style="width: 200px; height: 300px;margin-bottom: 50px;" />
+          <div id="closeImgs" class="carousel slide" data-ride="carousel" style="width: 320px;height: 400px;margin-left: 150px;">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#closeImgs" data-slide-to="0" class="active"></li>
+              <li data-target="#closeImgs" data-slide-to="1"></li>
+              <li data-target="#closeImgs" data-slide-to="2"></li>
+              <li data-target="#closeImgs" data-slide-to="3"></li>
+            </ul>
+            
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              
+              <div class="carousel-item active">
+                <img src={{closeModel.images[0]}} >
+              </div>
+              <div class="carousel-item">
+                <img src={{closeModel.images[1]}}>
+              </div>
+              <div class="carousel-item">
+                <img src={{closeModel.images[2]}}>
+              </div>
+              <div class="carousel-item">
+                <img src={{closeModel.images[3]}}>
+              </div>
+            </div>
+            
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#closeImgs" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#closeImgs" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
 
 
-        </div>
+      </div>
       </div>
     </div>
-
-    <div class="col-sm-6">
+    <!-- Div of product name ,price,description and designer with buutton add to cart-->
+    <div class="col-sm-4" id="details">
       <div class="row">
         <div class="col-sm-12">
+        <!-- <input type="submit" value="Add to cart" name="btn" id="btnid"> -->
+        <h3>{{closeModel.name}}</h3>
+        <p>{{closeModel.designer}}</p> 
+        <p>{{closeModel.price}} EGP</p>
+        <h5> Item Code : {{ID}}</h5>
+        <br>
+        <button type="button" class="btn btn-dark" (click)="goToCart(closeModel)">Add to Cart</button>
+        <button type="button" class="btn btn-light">Add to Wishlist</button>
 
-          <h4>AYO</h4>
-          <p>Light Grey Yin Yang Sweatshirt</p>
-          <p>590 EGP</p>
-        </div>
+        <br>
+          <br>
+          <hr>
+          <div>
+            <h6>-SIZE AND FIT INFORMATION</h6>
+            <p>Strap {{closeModel.strap}} | 50 cm </p>
+            <p>Height {{closeModel.height}} | 16 cm </p>
+            <p>Width {{closeModel.width}} | 26 cm </p>
+            <p>Depth {{closeModel.depth}} | 9 cm</p>
+          </div>
       </div>
-    </div>
+      <button type="button" class="btn btn-info" (click)="back()">Back </button>
+
   </div>
 </div>
+</div>
+</div> 
+

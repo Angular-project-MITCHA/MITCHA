@@ -33,4 +33,7 @@ export class BagService {
    }
 
 
+  getSearch(name):Observable<any>{
+    return this.http.get<any>('http://localhost:5000/MITCHA/bags/search/'+name);
+  }
 }

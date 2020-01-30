@@ -12,6 +12,12 @@ import { ClothingComponent } from './clothing/clothing.component';
 import {ClothingdetailsComponent} from './clothingdetails/clothingdetails.component'
 import { CartComponent } from './cart/cart.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { BagsearchComponent } from './bagsearch/bagsearch.component';
+import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component';
+import { ADMINComponent } from './admin/admin.component';
+import { AllBagsComponent } from './all-bags/all-bags.component';
+import { AllClothingComponent } from './all-clothing/all-clothing.component';
+import { AllJewleryComponent } from './all-jewlery/all-jewlery.component';
 
 
 const routes: Routes = [
@@ -26,6 +32,15 @@ const routes: Routes = [
   children:[{path:'login',component:LoginFormComponent},{path:'register',component:RegisterFormComponent}]},
   {path:'jewelrydetail',component:JewelrydetailsComponent},
   {path:'clothingdetails',component:ClothingdetailsComponent},
+  {path:'bagsearch/:name',component:BagsearchComponent},
+  {path:'jewerlysearch/:name',component:JewerlysearchComponent},
+  {path:'clothingdetails/:_id',component:ClothingdetailsComponent},
+  
+  {path:'admin',component:ADMINComponent,
+  children:[{path:'allBags',component:AllBagsComponent},
+  {path:'allClothing',component:AllClothingComponent},
+  {path:'allJewlry',component:AllJewleryComponent}
+]},
   {path:'**' ,component:PagenotfoundComponent}
 ];
 

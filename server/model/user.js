@@ -33,7 +33,7 @@ var users =new Schema({
   cart:{
     items:[
         {
-            productId:{type:Schema.Types.ObjectId,ref:'bags',required:true},
+            productId:{type:Schema.Types.ObjectId,ref:'All',required:true},
             quantity:{type:Number,required:true} 
              
         }
@@ -62,6 +62,14 @@ users.methods.addToCart=function(product){
   this.cart=updatedCart;
   return this.save(); 
 }
+
+users.methods.removeFromCart=function(productId){
+  const updatedCartItems=this.cart.items.filter(item =>{
+      return (item.productId.toString()!==productId.toString())
+  })
+  this.cart.items=updatedCartItems;
+  return this.save();
+}    
 
 
 

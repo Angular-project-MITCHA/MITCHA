@@ -60,6 +60,7 @@ app.use("/MITCHA/login", login);
 app.use("/MITCHA/bags", bags); 
 app.use("/MITCHA/jewerly", jewerly)
 app.use("/MITCHA/clothing", clothing)
+app.use("/MITCHA/shopcart", shopcart)
 // limit number of requests from the same ip address
 app.use("/MITCHA", limiter);
 // http security headers

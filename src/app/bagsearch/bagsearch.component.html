@@ -1,0 +1,24 @@
+<div class="container">
+  
+  <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;">BAGS</p>
+  <div class="row"  >
+    <div class="col-sm-4" *ngFor="let bag of bagModel" (click)="onSelect(bag)">
+      <div class="row">
+           <div class="col-sm-12">
+            <div class="card" style="width: 100%;height: 100%;border: none;">
+            <div class="imageBox">
+            <div class="card-img">
+              <img src={{bag.images[0]}} style="width: 100%;height:100%;"/>
+            </div>
+            <div class="hoverImg">
+                <img src={{bag.images[1]}} style="width: 100%;height:100%;"/>
+          </div>
+        </div>
+            <h3 class="card-title">{{bag.name}}</h3>
+      <p class="card-text">{{bag.designer}}</p> 
+      <p>{{bag.price}} EGP</p>
+      </div>
+    </div>
+    </div>
+    </div> 
+</div>

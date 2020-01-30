@@ -17,7 +17,7 @@ export class JewelryComponent implements OnInit {
   pageSizeOptions=[3,6,9];
   ngOnInit() {
     this.jewe.listJew(this.bagsPerPage,this.currentPage).subscribe(data=>{
-      this.jewerly=data;
+      this.jewerly=data.cbag;
       this.totalBags=data.maxBags;
     })
   }
@@ -26,7 +26,7 @@ export class JewelryComponent implements OnInit {
     this.currentPage=pageData.pageIndex + 1;
     this.bagsPerPage=pageData.pageSize;
     this.jewe.listJew(this.bagsPerPage,this.currentPage).subscribe(data=>{
-      this.jewerly=data;
+      this.jewerly=data.cbag;
       this.totalBags=data.maxBags;
     })
 
@@ -35,6 +35,11 @@ export class JewelryComponent implements OnInit {
   onSelect(jew){
     this.router.navigate(['/jewelrydetails',jew._id])
    console.log(jew._id);
+   
+  }
+  search(name){
+    this.router.navigate(['/jewerlysearch',name])
+   console.log(name);
    
   }
 

@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var clothings = new Schema({
-     name:String,
+    name:String,
     price:Number,
     designer:String,
     description:String,
@@ -12,6 +12,7 @@ var clothings = new Schema({
     width:Number,
     depth:Number,
     code:String
+
 
 },
 {collection:"clothing"}

@@ -42,8 +42,12 @@ export class BagsComponent implements OnInit {
   onSelect(bag){
     this.router.navigate(['/bagdetail',bag._id])
    console.log(bag._id);
+  }
+
+  search(name){
+    this.router.navigate(['/bagsearch',name])
+   console.log(name);
    
   }
   
-
 }

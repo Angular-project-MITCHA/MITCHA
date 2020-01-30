@@ -3,8 +3,8 @@ var bodyParser = require("body-parser");
 var router = express.Router();
 var mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
-const Product = require('../model/product');
-const bags=require('../model/bags');
+// const Product = require('../model/product');
+const All=require('../model/All');
 
 // const Products=require('../model/Products') 
 var parseUrlencoded = bodyParser.urlencoded({
@@ -28,7 +28,7 @@ router.get('/cart/:id',function(req,res){
     var id=req.params.id; 
     console.log(id)
     // var _id=req.body.proId;
-    bags.findById(id)
+    All.findById(id)
    .then(product => {
      console.log(product);
     return req.user.addToCart(product);
@@ -37,5 +37,15 @@ router.get('/cart/:id',function(req,res){
   }); 
      
   })
+
+
+router.get('/deleteCart/:id',function(req,res){ 
+    var id=req.params.id;
+    req.user
+    .removeFromCart(id).then(result => {
+      console.log('item Deleted'); 
+    })
+    .catch(err => console.log(err)); 
+  })  
 module.exports = router;
    

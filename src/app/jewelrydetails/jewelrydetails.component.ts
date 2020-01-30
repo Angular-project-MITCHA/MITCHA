@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {Jewerly} from '../jewerly';
 import { JewerlyService } from '../services/jewerly.service';
+import { CartService } from '../services/cart.service';
 
 
 @Component({
@@ -11,10 +12,13 @@ import { JewerlyService } from '../services/jewerly.service';
 })
 export class JewelrydetailsComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute , private jewe:JewerlyService , private router:Router) { }
+  constructor(private route:ActivatedRoute , 
+    private jewe:JewerlyService , private router:Router
+    ,private cartserv:CartService) { }
   public code;
   public ID;
   public jewel=new Jewerly ("",0,"","",[""],"",0,0,0,0,"");
+  public proId;
   
 
   ngOnInit() {
@@ -37,6 +41,12 @@ export class JewelrydetailsComponent implements OnInit {
    this.router.navigate(['/jewelry']);
 
   }
+  goToCart(product){
+    this.router.navigate(['/cart',product._id]);
+    this.proId=product._id; 
+    this.cartserv.postCart(this.proId).subscribe();
+  }
+  
   }
 
 

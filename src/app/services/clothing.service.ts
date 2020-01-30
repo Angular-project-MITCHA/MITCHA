@@ -9,29 +9,32 @@ import { HttpClient } from '@angular/common/http';
 
 export class  ClothingService {
   
-  // listclothing(clothingPerPage:Number,currentPage:Number)
+  
       constructor(private http:HttpClient) { }
-      listclothing():Observable<any>{
-        // const queryParams=`?pagesize=${clothingPerPage}&page=${currentPage}`;
-        // console.log(queryParams)
-         return this.http
-         .get<any>('http://localhost:5000/MITCHA/clothing/list/')
-      
-       }
+
+
+      listclothing(bagsPerPage:Number,currentPage:Number):Observable<any>{
+        const queryParams=`?pagesize=${bagsPerPage}&page=${currentPage}`;
+        console.log(queryParams)
+        return this.http.get<any>("http://localhost:5000/MITCHA/clothing/list/" + queryParams);
      
-     
-    getDetails(_id):Observable<any>{
-      return this.http.get<any>('http://localhost:5000/MITCHA/clothing/clothingdetails/'+_id);
-    }
+      }
+      getDetails(_id):Observable<any>{
+        return this.http.get<any>('http://localhost:5000/MITCHA/clothing/clothingdetails/'+_id);
+      }
 
-
-
-    randomclothing():Observable<any>{
+      randomclothing():Observable<any>{
     
-      return this.http.get<any>('http://localhost:5000/MITCHA/clothing/random');
-   
+        return this.http.get<any>('http://localhost:5000/MITCHA/clothing/random');
+     
+      }
     }
 
-  }
+
+
+    
+
+  
    
   
+    

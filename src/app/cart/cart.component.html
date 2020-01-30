@@ -14,10 +14,8 @@
                     <li class="cart__item">
                         <h1>Name:{{item.productId.name}}</h1>
                         <h2>Quantity:{{item.quantity}}</h2> 
-
-                        <form action="/cart-delete-item" method="POST">
-                            <button class="btn danger" type="submit">Delete</button>
-                        </form>
+                        <button class="btn danger" type="submit" (click)="deleteCartItem(item.productId._id)">Delete</button>
+                        
                     </li>
                  
             </ul>

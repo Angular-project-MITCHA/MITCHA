@@ -41,5 +41,22 @@ route.get('/jewelrydetails/:_id', function (req, resp) {
   })
 })
 
+
+
+// get 3 records
+route.get('/random',function(req,resp){
+
+  var tenBags=[];
+    mongoose.model('jewerly').find(function(err,data){
+      for (i=0; i<3; i++)
+      {
+        tenBags[i]=data[i];
+      }
+      resp.send(tenBags);
+  })
+  
+  })
+
+
 module.exports = route;
 

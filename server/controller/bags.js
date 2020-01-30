@@ -71,4 +71,23 @@ router.get('/search/:name',function(req,resp){
 })
  
 
+router.get('/random',function(req,resp){
+
+var tenBags=[];
+  mongoose.model('bags').find(function(err,data){
+    for (i=0; i<3; i++)
+    {
+      tenBags[i]=data[i];
+    }
+    resp.send(tenBags);
+})
+
+})
+
+
+ 
+
+
+
+
 module.exports = router;

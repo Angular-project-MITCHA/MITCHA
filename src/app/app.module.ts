@@ -22,7 +22,8 @@ import { JewerlyService } from "./services/jewerly.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PagenotfoundComponent } from "./pagenotfound/pagenotfound.component";
 import { UserService } from "./services/user.service";
-// import { from } from 'rxjs';
+ import { from } from 'rxjs';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserService } from "./services/user.service";
     JewelrydetailsComponent,
     BagsdetailsComponent,
     ClothingdetailsComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

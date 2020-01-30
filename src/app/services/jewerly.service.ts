@@ -18,4 +18,10 @@ export class JewerlyService {
   jewDetails(_id):Observable<any>{
     return this.http.get<any>('http://localhost:5000/MITCHA/jewerly/jewelrydetails/'+_id);
   }
+  randomjwl():Observable<any>{
+    
+    return this.http.get<any>('http://localhost:5000/MITCHA/jewerly/random');
+ 
+  }
+
 }

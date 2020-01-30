@@ -3,6 +3,8 @@ var bodyParser = require("body-parser");
 var router = express.Router();
 var mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
+const bags=require('../model/bags');
+
 var parseUrlencoded = bodyParser.urlencoded({
   extended: true
 }); 
@@ -12,7 +14,7 @@ router.get('/list',function(req,resp){
   const pageSize= +req.query.pagesize;
   const currentPage= +req.query.page;
   let fetchedBags;
-  const mong=mongoose.model('bags').find()
+  const mong=bags.find()
    
   if(pageSize && currentPage){
     mong.skip(pageSize * (currentPage - 1))
@@ -20,7 +22,7 @@ router.get('/list',function(req,resp){
   }
    mong.then(comingBags =>{
      fetchedBags=comingBags;
-     return mongoose.model('bags').count()
+     return bags.count()
     //  resp.status(200).json(po)
    }).then(count =>{
     resp.status(200).json({

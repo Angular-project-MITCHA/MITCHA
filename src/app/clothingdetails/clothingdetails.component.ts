@@ -8,7 +8,7 @@ import { ClothingService } from '../services/clothing.service';
   templateUrl: './clothingdetails.component.html',
   styleUrls: ['./clothingdetails.component.css']
 })
-export class clothingdetailsComponent implements OnInit {
+export class ClothingdetailsComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private router:Router,private clothingServ:ClothingService) { }
   public code;

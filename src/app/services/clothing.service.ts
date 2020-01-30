@@ -13,22 +13,20 @@ export class  ClothingService {
       constructor(private http:HttpClient) { }
 
 
-      listclothing(clothingPerPage:Number,currentPage:Number):Observable<any>{
-        const queryParams=`?pagesize=${clothingPerPage}&page=${currentPage}`;
+      listclothing(bagsPerPage:Number,currentPage:Number):Observable<any>{
+        const queryParams=`?pagesize=${bagsPerPage}&page=${currentPage}`;
         console.log(queryParams)
-         return this.http
-         .get<any>('http://localhost:5000/MITCHA/clothing/list/')
+        return this.http.get<any>("http://localhost:5000/MITCHA/clothing/list/" + queryParams);
+     
+      }
+      getDetails(_id):Observable<any>{
+        return this.http.get<any>('http://localhost:5000/MITCHA/clothing/clothingdetails/'+_id);
+      }
+      getSearch(name):Observable<any>{
+        return this.http.get<any>('http://localhost:5000/MITCHA/clothing/search/'+name);
       
-       }
-     
-     
-    getDetails(_id):Observable<any>{
-      return this.http.get<any>('http://localhost:5000/MITCHA/clothing/clothingdetails/'+_id);
     }
-    
-    getSearch(name):Observable<any>{
-      return this.http.get<any>('http://localhost:5000/MITCHA/clothing/search/'+name);
     }
-  }
    
   
+    

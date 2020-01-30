@@ -12,31 +12,28 @@ export class ClothingComponent implements OnInit {
 
 
   constructor(private clothingServ:ClothingService,private router:Router) { }
-  clothing=[];
-  totalclothing=0;
-  clothingPerPage=9;
+  public clothing=[];
+  totalBags=0;
+  bagsPerPage=9;
   currentPage=1;   
   pageSizeOptions=[3,6,9];
   ngOnInit() {
-    this.clothingServ.listclothing(this.clothingPerPage,this.currentPage)
-    .subscribe(data=>{
+    this.clothingServ.listclothing(this.bagsPerPage,this.currentPage).subscribe(data=>{
       this.clothing=data.cbag;
-      this.totalclothing=data.maxclothing;
-
-     })
-
+      this.totalBags=data.maxBags;
+    })
   }
-  onChangedPage(pageData:PageEvent){
-    
+  onChangedPage (pageData:PageEvent){
+    // console.log(pageData); 
     this.currentPage=pageData.pageIndex + 1;
-    this.clothingPerPage=pageData.pageSize;
-    this.clothingServ.listclothing(this.clothingPerPage,this.currentPage)
-    .subscribe(data=>{
-      this.clothing=data.cclothing;
-      this.totalclothing=data.maxclothing;
+    this.bagsPerPage=pageData.pageSize;
+    this.clothingServ.listclothing(this.bagsPerPage,this.currentPage).subscribe(data=>{
+      this.clothing=data.cbag;
+      this.totalBags=data.maxBags;
+    })
 
-     })
-  }
+
+  }  
   onSelect(close){
     this.router.navigate(['/clothingdetails',close._id])
    console.log(close._id);
@@ -47,4 +44,5 @@ export class ClothingComponent implements OnInit {
    console.log(name);
    
   }
+
 }

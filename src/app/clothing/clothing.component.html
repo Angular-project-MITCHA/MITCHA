@@ -26,10 +26,11 @@
     </div> 
  
   
-    <mat-paginator id="pages" [length]="totalclothing"
-              [pageSize]="clothingPerPage"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="onChangedPage($event)">
-     </mat-paginator >
+    
 </div>
+<mat-paginator [length]="totalBags"
+[pageSize]="bagsPerPage"
+[pageSizeOptions]="pageSizeOptions"
+(page)="onChangedPage($event)">
+</mat-paginator>
 </div>

@@ -17,13 +17,24 @@ export class BagService {
     .get<any>('http://localhost:5000/MITCHA/bags/list/' + queryParams)
  
   }
-
-
+  listAll():Observable<any>{
+    return this.http
+    .get<any>('http://localhost:5000/MITCHA/bags/listall/')
+ 
+  }
    // get bag details
 
    getDetails(_id):Observable<any>{
     return this.http.get<any>('http://localhost:5000/MITCHA/bags/bagdetail/'+_id);
   }
+
+
+  randomBags():Observable<any>{
+    
+     return this.http.get<any>('http://localhost:5000/MITCHA/bags/random');
+  
+   }
+
 
   getSearch(name):Observable<any>{
     return this.http.get<any>('http://localhost:5000/MITCHA/bags/search/'+name);

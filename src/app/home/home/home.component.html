@@ -23,31 +23,93 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<!-- categories
+<!-- ranodm -->
+
+<hr>
+<hr>
+
 <div class="container">
+  <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;">BAGS</p>
+  <div class="row"  >
+    <div class="col-sm-4" *ngFor="let bag of bags" (click)="onSelectBag(bag)">
+      <div class="row">
+           <div class="col-sm-12">
+            <div class="card" style="width: 100%;height: 100%;border: none;">
+            <div class="imageBox">
+            <div class="card-img">
+              <img src={{bag.images[0]}} style="width: 100%;height:100%;"/>
+            </div>
+            <div class="hoverImg">
+                <img src={{bag.images[1]}} style="width: 100%;height:100%;"/>
+          </div>
+        </div>
+            <h3 class="card-title">{{bag.name}}</h3>
+      <p class="card-text">{{bag.designer}}</p> 
+      <p>{{bag.price}} EGP</p>
+      </div>
+    </div>
+    </div>
+    </div> 
+</div>
+
+<hr>
+<hr>
+
+
+<div class="container">
+  <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;">JEWERLY</p>
   <div class="row">
-    <div class="col-md-6"></div>
-
-    <div class="col-sm-3">
-      <img
-        src="https://www.mitcha.com/content/images/thumbs/0009494.jpeg"
-        class="w-100 h-50 float-right"
-      />
-    </div>
-    <div class="col-md-3 bg-dark w-50"></div>
-
-    <div class="col-md-3">
-      <img
-        src="https://www.mitcha.com/content/images/thumbs/0008149.jpeg"
-        class="w-50 h-50"
-      />
+    <div class="col-sm-4" *ngFor="let jew of jewerly" (click)="onSelectJwl(jew)">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card" style="width: 100%;height: 100%;border: none;">
+            <div class="imageBox">
+              <div class="card-img">
+                <img src={{jew.images[0]}} style="width: 100%;height:100%;" />
+              </div>
+              <div class="hoverImg">
+                <img src={{jew.images[1]}} style="width: 100%;height:100%;" />
+              </div>
+            </div>
+            <h3 class="card-title">{{jew.name}}</h3>
+            <p class="card-text">{{jew.designer}}</p>
+            <p>{{jew.price}} EGP</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-md-6 float-right ">
-    <a href="#"
-      ><img src="https://www.mitcha.com/content/images/thumbs/0008971.jpeg"
-    /></a>
-  </div>
-</div> -->
 
-<!-- footer -->
+
+
+<hr>
+<hr>
+
+
+<div class="container">
+  <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;">CLOTHING</p>
+  <div class="row"  >
+    <div class="col-sm-4" *ngFor="let close of clothing" (click)="onSelectClothing(close)">
+      <div class="row">
+           <div class="col-sm-12">
+            <div class="card" style="width: 100%;height: 100%;border: none;">
+            <div class="imageBox">
+            <div class="card-img">
+              <img src={{close.images[0]}} style="width: 100%;height:100%;"/>
+            </div>
+            <div class="hoverImg">
+                <img src={{close.images[1]}} style="width: 100%;height:100%;"/>
+          </div>
+        </div>
+            <h3 class="card-title">{{close.name}}</h3>
+      <p class="card-text">{{close.designer}}</p> 
+      <p>{{close.price}} EGP</p>
+      </div>
+    </div>
+    </div>
+    </div> 
+</div>
+
+
+<hr>
+<hr>

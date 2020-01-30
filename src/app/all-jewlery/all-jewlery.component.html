@@ -1,0 +1,29 @@
+<div class="container">
+    <p style="font-size: 30px;margin-left: 500px;text-decoration: underline;">JEWLERY</p>
+    <div class="row"  >
+      <div class="col-sm-4" *ngFor="let jew of jewerly">
+        <div class="row">
+             <div class="col-sm-12">
+              <div class="card" style="width: 100%;height: 100%;border: none;">
+              <div class="imageBox">
+              <div class="card-img">
+                <img src={{jew.images[0]}} style="width: 100%;height:100%;"/>
+              </div>
+              <div class="hoverImg">
+                  <img src={{jew.images[1]}} style="width: 100%;height:100%;"/>
+            </div>
+          </div>
+              <h3 class="card-title">{{jew.name}}</h3>
+        <p class="card-text">{{jew.designer}}</p> 
+        <p>{{jew.price}} EGP</p>
+        <button type="button" class="btn btn-outline-primary" value="Edit">Edit</button>
+        <br>
+        <button type="button" class="btn btn-outline-danger" value="Delete">Delete</button>
+
+
+        </div>
+      </div>
+      </div>
+      </div> 
+  </div>
+  </div>

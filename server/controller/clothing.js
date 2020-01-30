@@ -7,13 +7,6 @@ var clothing= require("../model/clothing")
 var parseUrlencoded = bodyParser.urlencoded({
   extended: true
 }); 
-
-
-
-
-
-
-
 router.get('/list', function (req, resp) {
   console.log(req.query)
   const pageSize= +req.query.pagesize;
@@ -54,6 +47,11 @@ router.get('/clothingdetails/:_id',function(req,resp){
  })
 
 })
+router.get('/listall',function(req,resp){
+  mongoose.model('clothing').find(function (err, data) {
+       resp.json(data);
+})
+})
 router.get('/search/:name',function(req,resp){
 
      
@@ -69,4 +67,20 @@ router.get('/search/:name',function(req,resp){
  })
 })
  
+// get 3 records
+router.get('/random',function(req,resp){
+
+  var tenBags=[];
+    mongoose.model('clothing').find(function(err,data){
+      for (i=0; i<3; i++)
+      {
+        tenBags[i]=data[i];
+      }
+      resp.send(tenBags);
+  })
+  
+  })
+  
+  
+
 module.exports = router;

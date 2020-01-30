@@ -31,10 +31,8 @@ router.get('/list',function(req,resp){
     })
    })  
 })
+// router.get('/listall')
 
-
-
- 
 
 // list bag details
 
@@ -50,6 +48,14 @@ router.get('/bagdetail/:_id',function(req,resp){
  })
 
 })
+router.get('/listall',function(req,resp){
+  mongoose.model('bags').find(function (err, data) {
+       resp.json(data);
+})
+})
+
+
+
 // search bag name
 
 router.get('/search/:name',function(req,resp){
@@ -68,5 +74,19 @@ router.get('/search/:name',function(req,resp){
 
 })
  
+
+router.get('/random',function(req,resp){
+
+var tenBags=[];
+  mongoose.model('bags').find(function(err,data){
+    for (i=0; i<3; i++)
+    {
+      tenBags[i]=data[i];
+    }
+    resp.send(tenBags);
+})
+
+})
+
 
 module.exports = router;

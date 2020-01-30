@@ -19,6 +19,9 @@ export class  ClothingService {
         return this.http.get<any>("http://localhost:5000/MITCHA/clothing/list/" + queryParams);
      
       }
+      listAll(){
+        return this.http.get<any>("http://localhost:5000/MITCHA/clothing/listall/")
+      }
       getDetails(_id):Observable<any>{
         return this.http.get<any>('http://localhost:5000/MITCHA/clothing/clothingdetails/'+_id);
       }
@@ -26,7 +29,17 @@ export class  ClothingService {
         return this.http.get<any>('http://localhost:5000/MITCHA/clothing/search/'+name);
       
     }
+    randomclothing():Observable<any>{
+    
+      return this.http.get<any>('http://localhost:5000/MITCHA/clothing/random');
+   
     }
+    }
+
+
+    
+
+  
    
   
     

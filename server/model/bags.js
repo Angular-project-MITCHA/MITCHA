@@ -13,4 +13,6 @@ var bags = new Schema({
     depth:Number,
     code:String 
 });
+
+
 module.exports=mongoose.model("bags",bags);

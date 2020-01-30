@@ -32,7 +32,6 @@ export class ClothingComponent implements OnInit {
       this.totalBags=data.maxBags;
     })
 
-
   }  
   onSelect(close){
     this.router.navigate(['/clothingdetails',close._id])

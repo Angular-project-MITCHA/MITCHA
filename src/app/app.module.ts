@@ -28,6 +28,13 @@ import { UserService } from "./services/user.service";
 import {CartComponent} from "./cart/cart.component";
 import { ClothingsearchComponent } from './clothingsearch/clothingsearch.component';
 import { AllComponent } from './all/all.component'
+ import { from } from 'rxjs';
+
+import { ADMINComponent } from './admin/admin.component';
+import { NavBarAdminComponent } from './nav-bar-admin/nav-bar-admin.component';
+import { AllBagsComponent } from './all-bags/all-bags.component';
+import { AllClothingComponent } from './all-clothing/all-clothing.component';
+import { AllJewleryComponent } from './all-jewlery/all-jewlery.component';
 // import { from } from 'rxjs';
 
 @NgModule({
@@ -50,7 +57,12 @@ import { AllComponent } from './all/all.component'
     JewerlysearchComponent,
     CartComponent,
     ClothingsearchComponent,
-    AllComponent
+    AllComponent,
+    ADMINComponent,
+    NavBarAdminComponent,
+    AllBagsComponent,
+    AllClothingComponent,
+    AllJewleryComponent
   ],
   imports: [
     BrowserModule,

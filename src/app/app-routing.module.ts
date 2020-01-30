@@ -16,6 +16,10 @@ import { BagsearchComponent } from './bagsearch/bagsearch.component';
 import { JewerlysearchComponent } from './jewerlysearch/jewerlysearch.component';
 import { ClothingsearchComponent } from './clothingsearch/clothingsearch.component';
 import { AllComponent } from './all/all.component';
+import { ADMINComponent } from './admin/admin.component';
+import { AllBagsComponent } from './all-bags/all-bags.component';
+import { AllClothingComponent } from './all-clothing/all-clothing.component';
+import { AllJewleryComponent } from './all-jewlery/all-jewlery.component';
 
 
 const routes: Routes = [
@@ -35,6 +39,12 @@ const routes: Routes = [
   {path:'clothingdetails/:_id',component:ClothingdetailsComponent},
   {path:'clothingsearch/:name',component:ClothingsearchComponent},
   {path:'all/:name',component:AllComponent},
+  
+  {path:'admin',component:ADMINComponent,
+  children:[{path:'allBags',component:AllBagsComponent},
+  {path:'allClothing',component:AllClothingComponent},
+  {path:'allJewlry',component:AllJewleryComponent}
+]},
   {path:'**' ,component:PagenotfoundComponent}
 ];
 
